@@ -26,7 +26,7 @@ RUN git clone https://github.com/bill-baumgartner/owltools.git ./owltools.git &&
 RUN git clone https://github.com/UCDenver-ccp/common.git ./common.git && \
     mvn clean install -f ./common.git/pom.xml
 
-COPY do.datasource /
+#COPY do.datasource /
 
 # install the datasource project
 RUN git clone --branch dev.ice_revision http://github.com/UCDenver-ccp/datasource.git ./datasource.git && \
