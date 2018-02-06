@@ -33,7 +33,7 @@ RUN git clone --branch dev.ice_revision http://github.com/UCDenver-ccp/datasourc
     mvn clean install -f ./datasource.git/pom.xml
 
 # install kr
-RUN git clone --branch leiningen-sesame4 https://github.com/bill-baumgartner/kr.git ./kr.git && \
+RUN git clone --branch bg-integration https://github.com/bill-baumgartner/kr.git ./kr.git && \
     cd ./kr.git && \
     lein install && \
     cd ..
@@ -41,11 +41,11 @@ RUN git clone --branch leiningen-sesame4 https://github.com/bill-baumgartner/kr.
 COPY do.kabob /
 
 # install the kabob project
-RUN git clone https://github.com/bill-baumgartner/kabob.git ./kabob.git && \
-    cd ./kabob.git && \
-    ./scripts/download/download-virtuoso-dependencies.sh mvn && \
-    lein install && \
-    cd .. && \
+RUN git clone --branch bg-integration https://github.com/bill-baumgartner/kabob.git ./kabob.git && \
+    #cd ./kabob.git && \
+    #./scripts/download/download-virtuoso-dependencies.sh mvn && \
+    #lein install && \
+    #cd .. && \
     mvn clean package -f ./kabob.git/scripts/download/support-scripts_process-ontologies/pom-flatten-ontology.xml
 
 COPY scripts/download-single-ontology.sh scripts/setup.sh scripts/download-ontologies.sh scripts/other-downloads.sh scripts/ice-rdf-gen.sh /
