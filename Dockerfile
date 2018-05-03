@@ -14,7 +14,10 @@ RUN apt-get update && apt-get install -y \
     groovy
 
 # install Clojure/Leiningen
-RUN wget -q -O /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && \
+#RUN wget -q -O /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && \
+# versions of leiningen more recent that 2.7.1 have stricter security checks that do not permit dependencies
+# from being obtained via http. Unfortunately the StarDog public Maven repo is only available via http.
+RUN wget -q -O /usr/local/bin/lein https://raw.githubusercontent.com/technomancy/leiningen/2.7.1/bin/lein && \
     chmod +x /usr/local/bin/lein
 
 RUN lein
