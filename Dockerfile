@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     inotify-tools \
     less \
-    groovy
+    groovy \
+    vim
 
 # install Clojure/Leiningen
 #RUN wget -q -O /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein && \
