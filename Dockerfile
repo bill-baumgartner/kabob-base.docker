@@ -30,7 +30,7 @@ RUN git clone https://github.com/UCDenver-ccp/common.git ./common.git && \
 COPY do.datasource /
 
 # install the datasource project
-RUN git clone --branch dev.ice_revision http://github.com/UCDenver-ccp/datasource.git ./datasource.git && \
+RUN git clone http://github.com/UCDenver-ccp/datasource.git ./datasource.git && \
     mvn clean install -f ./datasource.git/pom.xml
 
 # install kr
